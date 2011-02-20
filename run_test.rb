@@ -1,10 +1,10 @@
 require 'dbconfig'
 require 'benchmark'
 
-ActiveRecord::Base.logger = Logger.new(STDOUT)
+#ActiveRecord::Base.logger = Logger.new(STDOUT)
 
 Benchmark.bm(10) do |b|
-  b.report("ORM sorted") do
+  b.report("ORM") do
     (1..100).each do 
       @tags = Tag.find(:all)
     end
