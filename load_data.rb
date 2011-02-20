@@ -2,6 +2,8 @@ require 'dbconfig'
 
 words = File.open('/usr/share/dict/words').readlines
 
-words[0..3000].each do |w|
+Tag.destroy_all
+
+words[0..3000].shuffle.each do |w|
   Tag.create({:name => w.downcase})
 end
